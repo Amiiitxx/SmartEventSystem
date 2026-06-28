@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/events.css' %}">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+<div class="container py-5">
+
+    <h1 class="page-title">
+        Upcoming Events
+    </h1>
+
+    <form method="GET" class="search-box">
+
+        <input
+            type="text"
+            name="q"
+            placeholder="Search Events..."
+            value="{{ query|default:'' }}">
+
+        <button type="submit">
+            <i class="fas fa-search"></i>
+        </button>
+
+    </form>
+
+    <div class="row mt-5">
+
+        {% for event in events %}
+
+        <div class="col-lg-3 col-md-6 mb-4">
+
+            <div class="event-card">
+
+                {% if event.image %}
+                    <img src="{{ event.image.url }}" alt="{{ event.title }}">
+                {% else %}
+                    <img src="{% static 'images/default_event.jpg' %}" alt="Event">
+                {% endif %}
+
+                <div class="event-content">
+
+                    <h4>{{ event.title }}</h4>
+
+                    <p>
+                        <i class="fas fa-location-dot"></i>
+                        {{ event.venue }}
+                    </p>
+
+                    <p>
+                        <i class="fas fa-calendar-days"></i>
+                        {{ event.date }}
+                    </p>
+
+                    <!-- View Details Button -->
+
+                    <a href="{% url 'event_details' event.id %}"
+                       class="btn btn-primary w-100 mb-2">
+
+                        <i class="fas fa-eye"></i>
+
+                        View Details
+
+                    </a>
+
+                    <!-- Register Button -->
+
+                    {% if user.is_authenticated %}
+
+                        {% if event.id in registered_event_ids %}
+
+                            <button class="btn btn-success w-100" disabled>
+
+                                <i class="fas fa-check-circle"></i>
+
+                                Already Registered
+
+                            </button>
+
+                        {% else %}
+
+                            <a href="{% url 'register_event' event.id %}"
+                               class="btn btn-danger w-100">
+
+                                <i class="fas fa-user-plus"></i>
+
+                                Register Now
+
+                            </a>
+
+                        {% endif %}
+
+                    {% else %}
+
+                        <a href="{% url 'login' %}"
+                           class="btn btn-outline-danger w-100">
+
+                            <i class="fas fa-lock"></i>
+
+                            Login to Register
+
+                        </a>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <div class="col-12 text-center">
+
+            <div class="alert alert-warning">
+
+                <h4>No Events Available</h4>
+
+                <p>Events will be added soon.</p>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

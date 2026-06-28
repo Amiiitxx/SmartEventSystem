@@ -1,0 +1,254 @@
+/* ==================================
+   GALLERY PAGE
+================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:linear-gradient(180deg,#f8f9fb,#ffffff);
+}
+
+/* ==========================
+   TITLE
+========================== */
+
+.gallery-title{
+
+    text-align:center;
+
+    margin:105px 0 55px;
+
+    font-size:46px;
+    font-weight:800;
+    color:#222;
+
+    letter-spacing:.5px;
+
+    animation:fadeDown .8s ease;
+}
+
+.gallery-title::after{
+
+    content:"";
+
+    display:block;
+
+    width:90px;
+    height:5px;
+
+    background:linear-gradient(90deg,#8b0000,#ff4d4d);
+
+    margin:15px auto 0;
+
+    border-radius:20px;
+}
+
+/* ==========================
+   CARD
+========================== */
+
+.gallery-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:22px;
+
+    background:#fff;
+
+    border:1px solid rgba(0,0,0,.05);
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.08);
+
+    transition:.45s;
+
+    cursor:pointer;
+
+    animation:fadeUp .8s ease;
+
+}
+
+/* ==========================
+   IMAGE
+========================== */
+
+.gallery-card img{
+
+    width:100%;
+    height:280px;
+
+    object-fit:cover;
+
+    transition:.8s;
+
+    display:block;
+
+}
+
+/* ==========================
+   HOVER
+========================== */
+
+.gallery-card:hover{
+
+    transform:
+        translateY(-12px)
+        scale(1.02);
+
+    box-shadow:
+        0 25px 45px rgba(0,0,0,.16),
+        0 0 25px rgba(179,0,0,.10);
+}
+
+.gallery-card:hover img{
+
+    transform:
+        scale(1.12);
+
+    filter:
+        brightness(.88)
+        saturate(1.15);
+}
+
+/* ==========================
+   RED GLOW BORDER
+========================== */
+
+.gallery-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border:2px solid transparent;
+
+    border-radius:22px;
+
+    transition:.4s;
+}
+
+.gallery-card:hover::after{
+
+    border-color:rgba(179,0,0,.18);
+}
+
+/* ==========================
+   SHINE EFFECT
+========================== */
+
+.gallery-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-150%;
+
+    width:70%;
+    height:100%;
+
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.55),
+        transparent
+    );
+
+    transition:.8s;
+
+    z-index:2;
+}
+
+.gallery-card:hover::before{
+
+    left:160%;
+}
+
+/* ==========================
+   IMAGE OVERLAY
+========================== */
+
+.gallery-card .overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        transparent,
+        rgba(0,0,0,.55)
+    );
+
+    opacity:0;
+
+    transition:.4s;
+}
+
+.gallery-card:hover .overlay{
+
+    opacity:1;
+}
+
+/* ==========================
+   ANIMATION
+========================== */
+
+@keyframes fadeDown{
+
+    from{
+        opacity:0;
+        transform:translateY(-30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media(max-width:768px){
+
+.gallery-title{
+
+    font-size:34px;
+
+    margin-top:90px;
+
+}
+
+.gallery-card img{
+
+    height:220px;
+
+}
+
+}

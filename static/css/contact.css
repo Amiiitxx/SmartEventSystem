@@ -1,0 +1,301 @@
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:linear-gradient(180deg,#f4f6f9,#ffffff);
+}
+
+/* =========================
+   PAGE TITLE
+========================= */
+
+.contact-title{
+    margin:110px 0 55px;
+    text-align:center;
+    font-size:48px;
+    font-weight:800;
+    color:#8b0000;
+    letter-spacing:1px;
+    animation:fadeDown .8s ease;
+}
+
+.contact-title i{
+    margin-right:12px;
+}
+
+/* =========================
+   CONTACT INFO CARD
+========================= */
+
+.contact-info{
+    background:#fff;
+    padding:35px;
+    border-radius:24px;
+
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+
+    border-top:5px solid #8b0000;
+
+    height:100%;
+
+    transition:.4s;
+    animation:slideLeft .8s ease;
+}
+
+.contact-info:hover{
+    transform:translateY(-10px);
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.12),
+        0 0 20px rgba(139,0,0,.10);
+}
+
+.contact-info h3{
+    color:#8b0000;
+    font-size:30px;
+    font-weight:800;
+    margin-bottom:35px;
+}
+
+.contact-info p{
+    display:flex;
+    align-items:center;
+    gap:18px;
+
+    font-size:17px;
+    color:#444;
+
+    margin-bottom:26px;
+
+    transition:.35s;
+}
+
+.contact-info p:hover{
+    transform:translateX(8px);
+    color:#8b0000;
+}
+
+.contact-info i{
+
+    width:46px;
+    height:46px;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:#fff1f1;
+    color:#8b0000;
+
+    font-size:18px;
+
+    transition:.35s;
+}
+
+.contact-info p:hover i{
+    background:#8b0000;
+    color:#fff;
+    transform:rotate(10deg) scale(1.08);
+}
+
+/* =========================
+   CONTACT FORM
+========================= */
+
+.contact-form{
+
+    background:#fff;
+
+    padding:35px;
+
+    border-radius:24px;
+
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+
+    animation:slideRight .8s ease;
+
+    transition:.4s;
+}
+
+.contact-form:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.12),
+        0 0 20px rgba(139,0,0,.10);
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+.form-control{
+
+    border:2px solid #ececec;
+
+    border-radius:14px;
+
+    padding:15px 18px;
+
+    font-size:16px;
+
+    transition:.3s;
+
+    box-shadow:none;
+}
+
+.form-control:focus{
+
+    border-color:#8b0000;
+
+    box-shadow:
+        0 0 0 5px rgba(139,0,0,.08);
+
+    outline:none;
+}
+
+textarea.form-control{
+
+    resize:none;
+
+    min-height:170px;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.btn-danger{
+
+    background:linear-gradient(135deg,#8b0000,#d40000);
+
+    border:none;
+
+    border-radius:14px;
+
+    padding:14px 35px;
+
+    font-size:17px;
+    font-weight:700;
+
+    transition:.35s;
+}
+
+.btn-danger:hover{
+
+    transform:translateY(-4px);
+
+    background:linear-gradient(135deg,#a00000,#ff3030);
+
+    box-shadow:0 15px 30px rgba(139,0,0,.28);
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeDown{
+
+    from{
+        opacity:0;
+        transform:translateY(-35px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes slideLeft{
+
+    from{
+        opacity:0;
+        transform:translateX(-60px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+
+}
+
+@keyframes slideRight{
+
+    from{
+        opacity:0;
+        transform:translateX(60px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+    .contact-title{
+        font-size:36px;
+        margin-top:90px;
+    }
+
+    .contact-info{
+        margin-bottom:25px;
+        padding:28px;
+    }
+
+    .contact-form{
+        padding:28px;
+    }
+
+    .contact-info h3{
+        font-size:26px;
+    }
+
+    .contact-info p{
+        font-size:15px;
+    }
+
+}
+
+.row{
+    align-items:stretch;
+}
+
+.contact-info,
+.contact-form{
+    height:100%;
+    min-height:460px;
+    display:flex;
+    flex-direction:column;
+}
+
+.contact-form form{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+}
+
+.contact-form .btn-danger{
+    margin-top:auto;
+    width:200px;
+}

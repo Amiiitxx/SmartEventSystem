@@ -1,0 +1,144 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+}
+
+.register-card{
+
+    max-width:700px;
+    margin:auto;
+
+    background:#fff;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.1);
+}
+
+.register-card h2{
+
+    text-align:center;
+
+    color:#8b0000;
+
+    margin-bottom:20px;
+
+    font-weight:700;
+}
+
+.register-card h2 i{
+
+    margin-right:10px;
+}
+
+.event-details{
+
+    background:#f8f9fa;
+
+    border-left:5px solid #8b0000;
+
+    padding:18px;
+
+    border-radius:10px;
+
+    margin-bottom:30px;
+}
+
+.event-details h4{
+
+    color:#8b0000;
+
+    margin-bottom:10px;
+}
+
+.event-details p{
+
+    margin-bottom:8px;
+
+    color:#555;
+}
+
+.event-details i{
+
+    color:#8b0000;
+
+    width:20px;
+}
+
+label{
+
+    font-weight:600;
+
+    margin-bottom:8px;
+
+    display:block;
+
+    color:#333;
+}
+
+.form-control{
+
+    border-radius:10px;
+
+    padding:12px;
+
+    border:1px solid #ddd;
+}
+
+.form-control:focus{
+
+    border-color:#8b0000;
+
+    box-shadow:0 0 0 .15rem rgba(139,0,0,.2);
+}
+
+.form-check{
+
+    margin-top:20px;
+}
+
+.buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    margin-top:25px;
+}
+
+.buttons .btn{
+
+    padding:10px 25px;
+
+    border-radius:10px;
+
+    font-weight:600;
+}
+
+@media(max-width:768px){
+
+.register-card{
+
+    padding:20px;
+}
+
+.buttons{
+
+    flex-direction:column;
+}
+
+.buttons .btn{
+
+    width:100%;
+}
+}

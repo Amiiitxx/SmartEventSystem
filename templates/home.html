@@ -1,0 +1,309 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- =========================
+     MAIN CONTENT
+========================= -->
+
+<div class="main-content">
+
+    <!-- =========================
+         HERO SECTION
+    ========================= -->
+
+    <section class="hero-section">
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+
+            <div class="hero-left">
+
+                {% if user.is_authenticated %}
+                <p class="welcome-user">
+                    Welcome {{ request.user.username }}
+                </p>
+                {% else %}
+                <p class="welcome-user">
+                    Welcome Guest
+                </p>
+                {% endif %}
+
+                <h1>
+                    Organize.<br>
+                    <span>Participate.</span><br>
+                    Celebrate.
+                </h1>
+
+                <p>
+                    A smarter way to manage college events
+                    and engage students.
+                </p>
+
+                <a href="{% url 'events' %}" class="btn btn-danger btn-lg">
+                    Explore Events
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         STATISTICS
+    ========================= -->
+
+    <section class="stats-section">
+
+        <div class="container">
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <i class="fas fa-calendar-days stat-icon"></i>
+                    <h2>120+</h2>
+                    <p>Total Events</p>
+                </div>
+
+                <div class="stat-card">
+                    <i class="fas fa-users stat-icon"></i>
+                    <h2>3500+</h2>
+                    <p>Students Registered</p>
+                </div>
+
+                <div class="stat-card">
+                    <i class="fas fa-trophy stat-icon"></i>
+                    <h2>75+</h2>
+                    <p>Completed Events</p>
+                </div>
+
+                <div class="stat-card">
+                    <i class="fas fa-clock stat-icon"></i>
+                    <h2>15+</h2>
+                    <p>Upcoming Events</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+        <!-- =========================
+         UPCOMING EVENTS
+    ========================= -->
+
+    <section class="events-section container">
+
+        <h2 class="section-title">
+            Upcoming Events
+        </h2>
+
+        <div class="row">
+
+            {% for event in events %}
+
+            <div class="col-lg-3 col-md-6 mb-4">
+
+                <div class="event-card">
+
+                    {% if event.image %}
+                        <img src="{{ event.image.url }}" alt="{{ event.title }}">
+                    {% else %}
+                        <img src="{% static 'images/default_event.jpg' %}" alt="Event">
+                    {% endif %}
+
+                    <div class="event-content">
+
+                        <h4>{{ event.title }}</h4>
+
+                        <p>
+                            <i class="fas fa-location-dot"></i>
+                            {{ event.venue }}
+                        </p>
+
+                        <p>
+                            <i class="fas fa-calendar-days"></i>
+                            {{ event.date }}
+                        </p>
+
+                        {% if user.is_authenticated %}
+
+                            <a href="{% url 'register_event' event.id %}"
+                               class="btn btn-danger btn-sm mt-2">
+                                Register Now
+                            </a>
+
+                        {% else %}
+
+                            <a href="{% url 'login' %}"
+                               class="btn btn-danger btn-sm mt-2">
+                                Register Now
+                            </a>
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12">
+
+                <div class="alert alert-warning text-center">
+
+                    <h4>No Upcoming Events</h4>
+
+                    <p>
+                        There are no upcoming events available at the moment.
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        <div class="text-center mt-4">
+
+            <a href="{% url 'events' %}" class="btn btn-outline-danger btn-lg">
+                View All Events
+            </a>
+
+        </div>
+
+    </section>
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <!-- About -->
+
+            <div class="footer-col">
+
+                <img src="{% static 'images/logo.png' %}"
+                     class="footer-logo"
+                     alt="Logo">
+
+                <h3>SMART EVENT</h3>
+
+                <p>
+                    Smart Event Management System<br>
+                    Central University of Andhra Pradesh<br>
+                    Ananthapuramu, Andhra Pradesh<br>
+                    India
+                </p>
+
+                <a href="{% url 'contact' %}" class="contact-btn">
+                    <i class="fas fa-envelope"></i>
+                    Contact Us
+                </a>
+
+            </div>
+
+            <!-- Quick Links -->
+
+            <div class="footer-col">
+
+                <h3>Quick Links</h3>
+
+                <ul>
+
+                    <li>
+                        <a href="{% url 'home' %}">
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'events' %}">
+                            Events
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'my_events' %}">
+                            My Events
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'gallery' %}">
+                            Gallery
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'notices' %}">
+                            Notices
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'contact' %}">
+                            Contact
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- Follow -->
+
+            <div class="footer-col">
+
+                <h3>Follow Us</h3>
+
+                <p>
+                    Stay connected with Smart Event on social media.
+                </p>
+
+                <div class="social-icons">
+
+                    <a href="#">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            © 2026 Smart Event Management System |
+            All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+</div>
+
+{% endblock %}

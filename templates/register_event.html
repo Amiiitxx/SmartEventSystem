@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/register_event.css' %}">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+<div class="container py-5" style="margin-top:100px;">
+
+    <div class="register-card">
+
+        <h2>
+            <i class="fas fa-user-plus"></i>
+            Event Registration Form
+        </h2>
+
+        <hr>
+
+        <div class="event-details">
+
+            <h4>{{ event.title }}</h4>
+
+            <p>
+                <i class="fas fa-location-dot"></i>
+                {{ event.venue }}
+            </p>
+
+            <p>
+                <i class="fas fa-calendar"></i>
+                {{ event.date }}
+            </p>
+
+        </div>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label>Full Name</label>
+                {{ form.full_name }}
+            </div>
+
+            <div class="mb-3">
+                <label>Student ID</label>
+                {{ form.student_id }}
+            </div>
+
+            <div class="mb-3">
+                <label>Email Address</label>
+                {{ form.email }}
+            </div>
+
+            <div class="mb-3">
+                <label>Mobile Number</label>
+                {{ form.mobile }}
+            </div>
+
+            <div class="mb-3">
+                <label>Department</label>
+                {{ form.department }}
+            </div>
+
+            <div class="mb-3">
+                <label>Year / Semester</label>
+                {{ form.semester }}
+            </div>
+
+            <div class="form-check mb-4">
+                {{ form.declaration }}
+                <label class="form-check-label">
+                    I confirm that the above information is correct.
+                </label>
+            </div>
+
+            <div class="buttons">
+
+                <button type="submit" class="btn btn-success">
+
+                    <i class="fas fa-check-circle"></i>
+
+                    Register
+
+                </button>
+
+                <a href="{% url 'events' %}" class="btn btn-danger">
+
+                    <i class="fas fa-times-circle"></i>
+
+                    Cancel
+
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,92 @@
+{% load static %}
+
+<div class="navbar-wrapper">
+
+
+<div class="top-nav">
+
+    <a href="{% url 'home' %}"
+       class="{% if active_page == 'home' %}active{% endif %}">
+       Home
+    </a>
+
+    <a href="{% url 'events' %}"
+       class="{% if active_page == 'events' %}active{% endif %}">
+       Events
+    </a>
+
+    <a href="{% url 'my_events' %}"
+       class="{% if active_page == 'my_events' %}active{% endif %}">
+       My Events
+    </a>
+
+    <a href="{% url 'gallery' %}"
+       class="{% if active_page == 'gallery' %}active{% endif %}">
+       Gallery
+    </a>
+
+    <a href="{% url 'notices' %}"
+       class="{% if active_page == 'notices' %}active{% endif %}">
+       Notices
+    </a>
+
+    <a href="{% url 'contact' %}"
+       class="{% if active_page == 'contact' %}active{% endif %}">
+       Contact
+    </a>
+
+</div>
+
+<div class="user-menu">
+
+    {% if user.is_authenticated %}
+
+    <div class="dropdown">
+
+        <button class="btn btn-danger dropdown-toggle"
+                data-bs-toggle="dropdown">
+
+            <i class="fas fa-user"></i>
+            {{ user.username }}
+
+        </button>
+
+        <ul class="dropdown-menu">
+
+            <li>
+                <a class="dropdown-item"
+                   href="{% url 'profile' %}">
+                   My Profile
+                </a>
+            </li>
+
+            <li>
+                <a class="dropdown-item"
+                   href="{% url 'my_events' %}">
+                   My Events
+                </a>
+            </li>
+
+            <li>
+                <a class="dropdown-item"
+                   href="{% url 'logout' %}">
+                   Logout
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+    {% else %}
+
+    <a href="{% url 'login' %}"
+       class="btn btn-danger">
+       Login
+    </a>
+
+    {% endif %}
+
+</div>
+
+</nav>

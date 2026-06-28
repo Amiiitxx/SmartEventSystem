@@ -1,0 +1,169 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Event Ticket</title>
+
+    <link rel="stylesheet" href="{% static 'css/ticket.css' %}">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="ticket-page">
+
+    <h1 class="page-title">
+        <i class="fas fa-ticket-alt"></i>
+        YOUR EVENT TICKET
+    </h1>
+
+    <div class="ticket-card">
+
+        <!-- Close Button -->
+
+        <a href="{% url 'my_events' %}" class="close-btn">
+            <i class="fas fa-times"></i>
+        </a>
+
+        <!-- Header -->
+
+        <div class="ticket-header">
+
+            <i class="fas fa-university"></i>
+
+            <h2>SMART EVENT MANAGEMENT</h2>
+
+            <p>Your Ticket to Great Events</p>
+
+        </div>
+
+        <!-- Ticket Body -->
+
+        <div class="ticket-body">
+
+            <!-- Student -->
+
+            <div class="ticket-row">
+
+                <div class="label">
+                    <i class="fas fa-user"></i>
+                    Student
+                </div>
+
+                <div class="value">
+                    {{ registration.user.username }}
+                </div>
+
+            </div>
+
+            <!-- Event -->
+
+            <div class="ticket-row">
+
+                <div class="label">
+                    <i class="fas fa-calendar-alt"></i>
+                    Event
+                </div>
+
+                <div class="value">
+                    {{ registration.event.title }}
+                </div>
+
+            </div>
+
+            <!-- Venue -->
+
+            <div class="ticket-row">
+
+                <div class="label">
+                    <i class="fas fa-location-dot"></i>
+                    Venue
+                </div>
+
+                <div class="value">
+                    {{ registration.event.venue }}
+                </div>
+
+            </div>
+
+            <!-- Date -->
+
+            <div class="ticket-row">
+
+                <div class="label">
+                    <i class="fas fa-clock"></i>
+                    Date
+                </div>
+
+                <div class="value">
+                    {{ registration.event.date }}
+                </div>
+
+            </div>
+
+            <!-- Divider -->
+
+            <div class="divider">
+                <span>SCAN AT ENTRY</span>
+            </div>
+
+            <!-- QR -->
+
+            <div class="qr-box">
+
+                <img src="{% url 'download_qr' registration.id %}" alt="QR Code">
+
+            </div>
+
+            <!-- Ticket Number -->
+
+            <div class="ticket-id">
+
+                <i class="fas fa-ticket-alt"></i>
+
+                Ticket ID :
+
+                {{ registration.ticket_number }}
+
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+
+        <div class="ticket-footer">
+
+            <a href="{% url 'download_qr' registration.id %}"
+               class="download-btn">
+
+                <i class="fas fa-download"></i>
+
+                Download QR
+
+            </a>
+
+            <button
+                onclick="window.print()"
+                class="print-btn">
+
+                <i class="fas fa-print"></i>
+
+                Print Ticket
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

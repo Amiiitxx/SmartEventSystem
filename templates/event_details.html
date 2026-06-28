@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/event_details.css' %}">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+<div class="container py-5" style="margin-top:80px;">
+
+    <div class="row align-items-center">
+
+        <!-- Event Image -->
+
+        <div class="col-lg-6 mb-4">
+
+            {% if event.image %}
+
+                <img src="{{ event.image.url }}"
+                     class="img-fluid rounded shadow"
+                     alt="{{ event.title }}">
+
+            {% else %}
+
+                <img src="{% static 'images/default_event.jpg' %}"
+                     class="img-fluid rounded shadow"
+                     alt="Event">
+
+            {% endif %}
+
+        </div>
+
+        <!-- Event Details -->
+
+        <div class="col-lg-6">
+
+            <h1 class="mb-4">
+
+                {{ event.title }}
+
+            </h1>
+
+            <p class="fs-5">
+
+                <i class="fas fa-location-dot text-danger"></i>
+
+                <strong> Venue :</strong>
+
+                {{ event.venue }}
+
+            </p>
+
+            <p class="fs-5">
+
+                <i class="fas fa-calendar-days text-primary"></i>
+
+                <strong> Date :</strong>
+
+                {{ event.date }}
+
+            </p>
+
+            <hr>
+
+            <h4 class="mb-3">
+
+                About This Event
+
+            </h4>
+
+            {% if event.description %}
+
+                <p class="text-muted">
+
+                    {{ event.description }}
+
+                </p>
+
+            {% else %}
+
+                <p class="text-muted">
+
+                    Event description will be updated soon.
+
+                </p>
+
+            {% endif %}
+
+            <div class="mt-4">
+
+                {% if user.is_authenticated %}
+
+                    <a href="{% url 'register_event' event.id %}"
+                       class="btn btn-danger btn-lg">
+
+                        <i class="fas fa-user-plus"></i>
+
+                        Register Now
+
+                    </a>
+
+                {% else %}
+
+                    <a href="{% url 'login' %}"
+                       class="btn btn-primary btn-lg">
+
+                        <i class="fas fa-lock"></i>
+
+                        Login to Register
+
+                    </a>
+
+                {% endif %}
+
+                <a href="{% url 'events' %}"
+                   class="btn btn-secondary btn-lg">
+
+                    <i class="fas fa-arrow-left"></i>
+
+                    Back
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

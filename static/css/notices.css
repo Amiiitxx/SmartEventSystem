@@ -1,0 +1,256 @@
+/* ===================================
+   NOTICES PAGE
+=================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:linear-gradient(180deg,#f8f9fb,#ffffff);
+}
+
+/* ==========================
+   PAGE TITLE
+========================== */
+
+.notice-title{
+    text-align:center;
+    margin:105px 0 55px;
+    font-size:46px;
+    font-weight:800;
+    color:#222;
+    letter-spacing:.5px;
+    animation:fadeDown .8s ease;
+}
+
+.notice-title i{
+    color:#b30000;
+    margin-right:12px;
+}
+
+.notice-title::after{
+    content:"";
+    display:block;
+    width:90px;
+    height:5px;
+    margin:15px auto 0;
+    border-radius:30px;
+    background:linear-gradient(90deg,#8b0000,#ff4d4d);
+}
+
+/* ==========================
+   NOTICE CARD
+========================== */
+
+.notice-card{
+
+    background:#fff;
+
+    padding:28px;
+
+    border-radius:20px;
+
+    border-left:5px solid #b30000;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+    margin-bottom:25px;
+
+    animation:fadeUp .8s ease;
+}
+
+.notice-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.15),
+        0 0 18px rgba(179,0,0,.10);
+}
+
+/* ==========================
+   HEADER
+========================== */
+
+.notice-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:18px;
+}
+
+/* ==========================
+   ICON
+========================== */
+
+.notice-icon{
+
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+
+    background:#fff1f1;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:#b30000;
+
+    font-size:18px;
+
+    flex-shrink:0;
+
+    transition:.35s;
+}
+
+.notice-card:hover .notice-icon{
+
+    background:#b30000;
+
+    color:#fff;
+
+    transform:rotate(10deg) scale(1.08);
+}
+
+/* ==========================
+   TITLE
+========================== */
+
+.notice-card h4{
+
+    margin:0;
+
+    font-size:24px;
+
+    font-weight:800;
+
+    color:#b30000;
+}
+
+/* ==========================
+   DESCRIPTION
+========================== */
+
+.notice-card p{
+
+    font-size:16px;
+
+    color:#555;
+
+    line-height:1.8;
+
+    margin:18px 0;
+}
+
+/* ==========================
+   DATE BADGE
+========================== */
+
+.notice-card span{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    background:#f5f5f5;
+
+    padding:8px 16px;
+
+    border-radius:30px;
+
+    color:#666;
+
+    font-size:13px;
+
+    font-weight:600;
+}
+
+.notice-card span i{
+
+    color:#999;
+}
+
+/* ==========================
+   ANIMATION
+========================== */
+
+@keyframes fadeDown{
+
+    from{
+        opacity:0;
+        transform:translateY(-30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media(max-width:768px){
+
+.notice-title{
+
+    font-size:34px;
+
+    margin-top:90px;
+
+}
+
+.notice-card{
+
+    padding:20px;
+}
+
+.notice-card h4{
+
+    font-size:20px;
+}
+
+.notice-card p{
+
+    font-size:15px;
+}
+
+.notice-icon{
+
+    width:36px;
+    height:36px;
+
+    font-size:15px;
+}
+
+}

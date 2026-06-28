@@ -1,0 +1,295 @@
+/* ===========================
+   MY EVENTS PAGE
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:linear-gradient(180deg,#f8f9fb,#ffffff);
+}
+
+/* ===========================
+   PAGE TITLE
+=========================== */
+
+.page-title{
+    margin:110px 0 55px;
+    font-size:46px;
+    font-weight:800;
+    color:#222;
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    animation:fadeDown .8s ease;
+}
+
+.page-title i{
+    color:#b30000;
+    font-size:40px;
+}
+
+/* ===========================
+   EVENT CARD
+=========================== */
+
+.my-event-card{
+    background:#fff;
+    border-radius:22px;
+    overflow:hidden;
+
+    border:1px solid rgba(0,0,0,.05);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.08);
+
+    transition:.4s ease;
+    animation:fadeUp .8s ease;
+
+    height:100%;
+}
+
+.my-event-card:hover{
+
+    transform:translateY(-12px);
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.15),
+        0 0 20px rgba(179,0,0,.10);
+}
+
+/* ===========================
+   IMAGE
+=========================== */
+
+.my-event-card img{
+
+    width:100%;
+    height:230px;
+
+    object-fit:cover;
+
+    transition:.6s;
+}
+
+.my-event-card:hover img{
+
+    transform:scale(1.08);
+
+    filter:brightness(.95);
+}
+
+/* ===========================
+   CONTENT
+=========================== */
+
+.card-content{
+
+    padding:22px;
+}
+
+.card-content h4{
+
+    font-size:25px;
+    font-weight:800;
+
+    color:#222;
+
+    margin-bottom:18px;
+}
+
+.card-content p{
+
+    font-size:16px;
+    color:#555;
+
+    display:flex;
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:14px;
+}
+
+.card-content p i{
+
+    width:18px;
+    color:#b30000;
+}
+
+/* ===========================
+   STATUS
+=========================== */
+
+.status{
+
+    display:inline-block;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    font-size:14px;
+    font-weight:700;
+
+    margin-top:8px;
+}
+
+.approved{
+
+    background:#dff8e7;
+    color:#16834b;
+}
+
+.pending{
+
+    background:#fff3cd;
+    color:#946200;
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+.download-btn,
+.wait-btn{
+
+    width:100%;
+
+    margin-top:20px;
+
+    padding:13px;
+
+    border:none;
+    border-radius:12px;
+
+    font-size:16px;
+    font-weight:700;
+
+    transition:.35s;
+}
+
+.download-btn{
+
+    background:linear-gradient(135deg,#198754,#1faa59);
+    color:#fff;
+}
+
+.download-btn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 15px 25px rgba(25,135,84,.30);
+}
+
+.wait-btn{
+
+    background:linear-gradient(135deg,#ffc107,#ffca2c);
+    color:#222;
+}
+
+.wait-btn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 15px 25px rgba(255,193,7,.30);
+}
+
+/* ===========================
+   CARD HOVER EFFECT
+=========================== */
+
+.my-event-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        180deg,
+        transparent,
+        rgba(179,0,0,.03)
+    );
+
+    opacity:0;
+
+    transition:.4s;
+
+    pointer-events:none;
+}
+
+.my-event-card{
+
+    position:relative;
+}
+
+.my-event-card:hover::before{
+
+    opacity:1;
+}
+
+/* ===========================
+   ANIMATION
+=========================== */
+
+@keyframes fadeDown{
+
+    from{
+        opacity:0;
+        transform:translateY(-30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media(max-width:768px){
+
+    .page-title{
+
+        font-size:34px;
+        margin-top:90px;
+    }
+
+    .page-title i{
+
+        font-size:30px;
+    }
+
+    .card-content h4{
+
+        font-size:22px;
+    }
+
+    .my-event-card img{
+
+        height:200px;
+    }
+}
