@@ -1,92 +1,147 @@
 {% load static %}
 
-<div class="navbar-wrapper">
+<nav class="navbar-wrapper">
 
+    <!-- ======================
+         LOGO
+    ======================= -->
 
-<div class="top-nav">
+    <div class="logo-section">
 
-    <a href="{% url 'home' %}"
-       class="{% if active_page == 'home' %}active{% endif %}">
-       Home
-    </a>
+        <a href="{% url 'home' %}" class="logo-link">
 
-    <a href="{% url 'events' %}"
-       class="{% if active_page == 'events' %}active{% endif %}">
-       Events
-    </a>
+            <img src="{% static 'images/logo.png' %}" alt="Logo">
 
-    <a href="{% url 'my_events' %}"
-       class="{% if active_page == 'my_events' %}active{% endif %}">
-       My Events
-    </a>
+            <div class="logo-text">
 
-    <a href="{% url 'gallery' %}"
-       class="{% if active_page == 'gallery' %}active{% endif %}">
-       Gallery
-    </a>
+                <h2>SMART EVENT</h2>
 
-    <a href="{% url 'notices' %}"
-       class="{% if active_page == 'notices' %}active{% endif %}">
-       Notices
-    </a>
+                <p>Management System</p>
 
-    <a href="{% url 'contact' %}"
-       class="{% if active_page == 'contact' %}active{% endif %}">
-       Contact
-    </a>
+            </div>
 
-</div>
-
-<div class="user-menu">
-
-    {% if user.is_authenticated %}
-
-    <div class="dropdown">
-
-        <button class="btn btn-danger dropdown-toggle"
-                data-bs-toggle="dropdown">
-
-            <i class="fas fa-user"></i>
-            {{ user.username }}
-
-        </button>
-
-        <ul class="dropdown-menu">
-
-            <li>
-                <a class="dropdown-item"
-                   href="{% url 'profile' %}">
-                   My Profile
-                </a>
-            </li>
-
-            <li>
-                <a class="dropdown-item"
-                   href="{% url 'my_events' %}">
-                   My Events
-                </a>
-            </li>
-
-            <li>
-                <a class="dropdown-item"
-                   href="{% url 'logout' %}">
-                   Logout
-                </a>
-            </li>
-
-        </ul>
+        </a>
 
     </div>
 
-    {% else %}
 
-    <a href="{% url 'login' %}"
-       class="btn btn-danger">
-       Login
-    </a>
+    <!-- ======================
+         MENU
+    ======================= -->
 
-    {% endif %}
+    <div class="top-nav">
 
-</div>
+        <a href="{% url 'home' %}"
+           class="{% if active_page == 'home' %}active{% endif %}">
+            Home
+        </a>
+
+        <a href="{% url 'events' %}"
+           class="{% if active_page == 'events' %}active{% endif %}">
+            Events
+        </a>
+
+        <a href="{% url 'my_events' %}"
+           class="{% if active_page == 'my_events' %}active{% endif %}">
+            My Events
+        </a>
+
+        <a href="{% url 'gallery' %}"
+           class="{% if active_page == 'gallery' %}active{% endif %}">
+            Gallery
+        </a>
+
+        <a href="{% url 'notices' %}"
+           class="{% if active_page == 'notices' %}active{% endif %}">
+            Notices
+        </a>
+
+        <a href="{% url 'contact' %}"
+           class="{% if active_page == 'contact' %}active{% endif %}">
+            Contact
+        </a>
+
+    </div>
+
+
+    <!-- ======================
+         USER
+    ======================= -->
+
+    <div class="user-menu">
+
+        {% if user.is_authenticated %}
+
+        <div class="dropdown">
+
+            <button
+                class="btn btn-danger rounded-pill px-4 py-2 dropdown-toggle"
+                data-bs-toggle="dropdown">
+
+                <i class="fas fa-user-circle me-2"></i>
+
+                {{ user.username }}
+
+            </button>
+
+            <ul class="dropdown-menu dropdown-menu-end shadow border-0">
+
+                <li>
+
+                    <a class="dropdown-item"
+                       href="{% url 'profile' %}">
+
+                        <i class="fas fa-user me-2"></i>
+
+                        My Profile
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a class="dropdown-item"
+                       href="{% url 'my_events' %}">
+
+                        <i class="fas fa-calendar me-2"></i>
+
+                        My Events
+
+                    </a>
+
+                </li>
+
+                <li><hr class="dropdown-divider"></li>
+
+                <li>
+
+                    <a class="dropdown-item text-danger"
+                       href="{% url 'logout' %}">
+
+                        <i class="fas fa-sign-out-alt me-2"></i>
+
+                        Logout
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+        {% else %}
+
+        <a href="{% url 'login' %}"
+           class="btn btn-danger rounded-pill px-4">
+
+            Login
+
+        </a>
+
+        {% endif %}
+
+    </div>
 
 </nav>

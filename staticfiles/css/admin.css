@@ -1,0 +1,165 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f4f6fb;
+}
+
+/* Sidebar */
+
+.sidebar{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:240px;
+
+    height:100vh;
+
+    background:#7a0000;
+
+    padding-top:30px;
+
+    box-shadow:5px 0 20px rgba(0,0,0,.15);
+}
+
+.sidebar h2{
+
+    color:#fff;
+
+    text-align:center;
+
+    margin-bottom:35px;
+
+    font-weight:700;
+}
+
+.sidebar a{
+
+    display:block;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    padding:15px 30px;
+
+    transition:.3s;
+
+    font-size:16px;
+}
+
+.sidebar a i{
+
+    width:25px;
+}
+
+.sidebar a:hover{
+
+    background:#fff;
+
+    color:#7a0000;
+
+    padding-left:40px;
+}
+
+/* Content */
+
+.content{
+
+    margin-left:260px;
+
+    padding:40px;
+}
+
+.content h1{
+
+    color:#7a0000;
+
+    font-weight:700;
+
+    margin-bottom:25px;
+}
+
+/* Cards */
+
+.dashboard-card{
+
+    border:none;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    padding:35px 20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+    cursor:pointer;
+}
+
+.dashboard-card:hover{
+
+    transform:translateY(-8px);
+}
+
+.dashboard-card i{
+
+    font-size:45px;
+
+    color:#7a0000;
+
+    margin-bottom:15px;
+}
+
+.dashboard-card h2{
+
+    font-size:34px;
+
+    font-weight:700;
+
+    color:#111;
+}
+
+.dashboard-card p{
+
+    color:#666;
+
+    font-size:17px;
+
+    margin-top:10px;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.sidebar{
+
+    width:100%;
+
+    height:auto;
+
+    position:relative;
+}
+
+.content{
+
+    margin-left:0;
+
+    padding:20px;
+}
+
+.dashboard-card{
+
+    margin-bottom:20px;
+}
+}

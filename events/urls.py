@@ -1,31 +1,26 @@
 from django.urls import path
 from . import views
 
-
 urlpatterns = [
+
+    # Home
     path('', views.home, name='home'),
 
+    # Events
     path('events/', views.events, name='events'),
+    path('event/<int:event_id>/', views.event_details, name='event_details'),
 
+    # Registration
     path(
         'register/<int:event_id>/',
         views.register_event,
         name='register_event'
     ),
 
+    # My Events
     path('my-events/', views.my_events, name='my_events'),
 
-    path('results/', views.results, name='results'),
-    path('gallery/', views.gallery, name='gallery'),
-    path('notices/', views.notices, name='notices'),
-    path('contact/', views.contact, name='contact'),
-
-    path('login/', views.login_page, name='login'),
-    path('logout/', views.logout_view, name='logout'),
-
-    path('profile/', views.profile, name='profile'),
-    path('ticket/', views.ticket_qr, name='ticket_qr'),
-
+    # Ticket
     path(
         'ticket/<int:registration_id>/',
         views.ticket,
@@ -37,10 +32,26 @@ urlpatterns = [
         views.download_qr,
         name='download_qr'
     ),
-    path(
-    'event/<int:event_id>/',
-    views.event_details,
-    name='event_details'
-),
-]
 
+    path('ticket/', views.ticket_qr, name='ticket_qr'),
+
+    # Gallery
+    path('gallery/', views.gallery, name='gallery'),
+
+    # Results
+    path('results/', views.results, name='results'),
+
+    # Notices
+    path('notices/', views.notices, name='notices'),
+
+    # Contact
+    path('contact/', views.contact, name='contact'),
+
+    # Authentication
+    path('login/', views.login_page, name='login'),
+    path('logout/', views.logout_view, name='logout'),
+
+    # Profile
+    path('profile/', views.profile, name='profile'),
+
+]

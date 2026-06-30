@@ -1,0 +1,411 @@
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f4f6fb;
+}
+
+/* =========================
+   PAGE
+========================= */
+
+.ticket-page{
+    width:100%;
+    max-width:650px;
+    margin:20px auto;
+    padding:10px;
+}
+
+.page-title{
+    text-align:center;
+    font-size:28px;
+    font-weight:700;
+    color:#222;
+    margin-bottom:20px;
+}
+
+.page-title i{
+    color:#6b4eff;
+    margin-right:8px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.ticket-card{
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+    position:relative;
+}
+
+/* =========================
+   CLOSE BUTTON
+========================= */
+
+.close-btn{
+    position:absolute;
+    top:15px;
+    right:15px;
+
+    color:#fff;
+    font-size:28px;
+    font-weight:bold;
+
+    text-decoration:none;
+
+    z-index:9999;
+
+    transition:.3s;
+}
+
+.close-btn:hover{
+    color:#ff4d4d;
+    transform:rotate(90deg);
+}
+/* =========================
+   HEADER
+========================= */
+
+.ticket-header{
+
+    background:linear-gradient(
+        135deg,
+        #6b4eff,
+        #4f46e5
+    );
+
+    color:#fff;
+
+    text-align:center;
+
+    padding:22px;
+}
+
+.ticket-header i{
+
+    font-size:32px;
+
+    margin-bottom:10px;
+}
+
+.ticket-header h2{
+
+    font-size:24px;
+
+    font-weight:700;
+}
+
+.ticket-header p{
+
+    margin-top:5px;
+
+    font-size:13px;
+}
+
+/* =========================
+   BODY
+========================= */
+
+.ticket-body{
+
+    padding:22px;
+}
+
+.ticket-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:12px 0;
+
+    border-bottom:1px solid #ececec;
+}
+
+.label{
+
+    font-size:15px;
+
+    font-weight:600;
+
+    color:#555;
+}
+
+.label i{
+
+    width:28px;
+
+    color:#6b4eff;
+}
+
+.value{
+
+    font-size:16px;
+
+    font-weight:600;
+
+    color:#111;
+}
+
+/* =========================
+   DIVIDER
+========================= */
+
+.divider{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin:20px 0;
+}
+
+.divider::before,
+.divider::after{
+
+    content:"";
+
+    flex:1;
+
+    border-bottom:2px dashed #6b4eff;
+}
+
+.divider span{
+
+    margin:0 12px;
+
+    color:#6b4eff;
+
+    font-size:14px;
+
+    font-weight:700;
+}
+
+/* =========================
+   QR
+========================= */
+
+.qr-box{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin:15px 0;
+}
+
+.qr-box img{
+
+    width:120px;
+
+    height:120px;
+
+    background:#fff;
+
+    padding:6px;
+
+    border-radius:10px;
+
+    border:1px solid #ddd;
+
+    box-shadow:0 4px 10px rgba(0,0,0,.08);
+}
+
+/* =========================
+   TICKET ID
+========================= */
+
+.ticket-id{
+
+    margin-top:18px;
+
+    background:#f4f0ff;
+
+    border-radius:10px;
+
+    padding:14px;
+
+    text-align:center;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    color:#6b4eff;
+}
+
+.ticket-id i{
+
+    margin-right:8px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.ticket-footer{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:12px;
+
+    padding:18px;
+
+    background:#fafafa;
+}
+
+.download-btn,
+.print-btn{
+
+    padding:10px 18px;
+
+    border-radius:8px;
+
+    text-decoration:none;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+    cursor:pointer;
+}
+
+.download-btn{
+
+    background:#6b4eff;
+
+    color:#fff;
+
+    border:none;
+}
+
+.download-btn:hover{
+
+    background:#5740df;
+
+    color:#fff;
+}
+
+.print-btn{
+
+    background:#fff;
+
+    border:1px solid #ccc;
+}
+
+.print-btn:hover{
+
+    background:#efefef;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+.ticket-page{
+
+    max-width:95%;
+
+    padding:10px;
+}
+
+.page-title{
+
+    font-size:22px;
+}
+
+.ticket-header{
+
+    padding:18px;
+}
+
+.ticket-header h2{
+
+    font-size:18px;
+}
+
+.ticket-header p{
+
+    font-size:12px;
+}
+
+.ticket-body{
+
+    padding:16px;
+}
+
+.ticket-row{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:6px;
+}
+
+.label{
+
+    font-size:14px;
+}
+
+.value{
+
+    font-size:15px;
+}
+
+.qr-box img{
+
+    width:100px;
+
+    height:100px;
+}
+
+.ticket-id{
+
+    font-size:14px;
+}
+
+.ticket-footer{
+
+    flex-direction:column;
+}
+
+.download-btn,
+.print-btn{
+
+    width:100%;
+
+    text-align:center;
+}
+
+.close-btn{
+
+    width:34px;
+
+    height:34px;
+
+    font-size:16px;
+}
+
+}

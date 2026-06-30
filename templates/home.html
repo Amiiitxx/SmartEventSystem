@@ -3,146 +3,514 @@
 
 {% block content %}
 
-<!-- =========================
-     MAIN CONTENT
-========================= -->
-
 <div class="main-content">
+    
+<!-- ===================================
+            HERO SECTION
+=================================== -->
 
-    <!-- =========================
-         HERO SECTION
-    ========================= -->
+<section class="hero-section">
 
-    <section class="hero-section">
+    <div class="hero-overlay"></div>
 
-        <div class="hero-overlay"></div>
+    <div class="container">
 
         <div class="hero-content">
 
             <div class="hero-left">
 
                 {% if user.is_authenticated %}
-                <p class="welcome-user">
-                    Welcome {{ request.user.username }}
-                </p>
+                <span class="welcome-user">
+                     Welcome, {{ request.user.username }}
+                </span>
                 {% else %}
-                <p class="welcome-user">
-                    Welcome Guest
-                </p>
+                <span class="welcome-user">
+                     Welcome, Guest
+                </span>
                 {% endif %}
 
                 <h1>
-                    Organize.<br>
-                    <span>Participate.</span><br>
-                    Celebrate.
+                    Smart Event <br>
+                    <span>Management System</span>
                 </h1>
-
-                <p>
-                    A smarter way to manage college events
-                    and engage students.
-                </p>
-
-                <a href="{% url 'events' %}" class="btn btn-danger btn-lg">
-                    Explore Events
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- =========================
-         STATISTICS
-    ========================= -->
-
-    <section class="stats-section">
-
-        <div class="container">
-
-            <div class="stats-grid">
-
-                <div class="stat-card">
-                    <i class="fas fa-calendar-days stat-icon"></i>
-                    <h2>120+</h2>
-                    <p>Total Events</p>
+                <div class="hero-tagline">
+                    Empowering Campus Events — Register • Participate • Experience Excellence
                 </div>
 
-                <div class="stat-card">
-                    <i class="fas fa-users stat-icon"></i>
-                    <h2>3500+</h2>
-                    <p>Students Registered</p>
-                </div>
+                <div class="hero-buttons">
 
-                <div class="stat-card">
-                    <i class="fas fa-trophy stat-icon"></i>
-                    <h2>75+</h2>
-                    <p>Completed Events</p>
-                </div>
+                    <a href="{% url 'events' %}"
+                       class="btn btn-danger btn-lg">
 
-                <div class="stat-card">
-                    <i class="fas fa-clock stat-icon"></i>
-                    <h2>15+</h2>
-                    <p>Upcoming Events</p>
+                        Explore Events
+                        <i class="fas fa-arrow-right ms-2"></i>
+
+                    </a>
+
+                    {% if not user.is_authenticated %}
+                    
+                    <a href="{% url 'login' %}"
+                        class="btn btn-outline-light btn-lg ms-3">
+                        Register
+                    </a>
+                    {% endif %}
+
                 </div>
 
             </div>
 
         </div>
 
-    </section>
+    </div>
 
-        <!-- =========================
-         UPCOMING EVENTS
-    ========================= -->
+</section>
 
-    <section class="events-section container">
+<!-- ===================================
+            STATISTICS SECTION
+=================================== -->
 
-        <h2 class="section-title">
-            Upcoming Events
-        </h2>
+<section class="stats-section">
 
-        <div class="row">
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="about-tag">
+                OUR ACHIEVEMENTS
+            </span>
+
+            <h2 class="section-title">
+                Smart Event <span>Statistics</span>
+            </h2>
+
+            <p class="section-subtitle">
+                A complete platform for managing university events,
+                registrations, competitions and student participation.
+            </p>
+
+        </div>
+
+        <div class="stats-grid">
+
+            <!-- Card 1 -->
+
+            <div class="stat-card">
+
+                <i class="fas fa-calendar-days stat-icon"></i>
+
+                <h2>120+</h2>
+
+                <p>Total Events</p>
+
+            </div>
+
+            <!-- Card 2 -->
+
+            <div class="stat-card">
+
+                <i class="fas fa-users stat-icon"></i>
+
+                <h2>3500+</h2>
+
+                <p>Students Registered</p>
+
+            </div>
+
+            <!-- Card 3 -->
+
+            <div class="stat-card">
+
+                <i class="fas fa-trophy stat-icon"></i>
+
+                <h2>75+</h2>
+
+                <p>Completed Events</p>
+
+            </div>
+
+            <!-- Card 4 -->
+
+            <div class="stat-card">
+
+                <i class="fas fa-clock stat-icon"></i>
+
+                <h2>15+</h2>
+
+                <p>Upcoming Events</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- =========================================
+            WHY CHOOSE US
+========================================= -->
+
+<section class="why-section">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="about-tag">WHY CHOOSE US</span>
+
+            <h2 class="section-title">
+
+                Why Students
+                <span>Love Our Platform</span>
+
+            </h2>
+
+            <p class="section-subtitle">
+
+                A modern digital platform designed to make every college
+                event easier, smarter and more enjoyable.
+
+            </p>
+
+        </div>
+
+            <div class="row g-4">
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="why-card">
+
+                    <i class="fas fa-calendar-check fs-1"></i>
+
+                    <h4>Easy Registration</h4>
+
+                    <p>
+
+                        Register for any event within seconds
+                        using a simple online form.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="why-card">
+
+                    <i class="fas fa-qrcode"></i>
+
+                    <h4>QR Entry</h4>
+
+                    <p>
+
+                        Secure QR ticket system for
+                        quick and paperless entry.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="why-card">
+
+                    <i class="fas fa-bell"></i>
+
+                    <h4>Live Updates</h4>
+
+                    <p>
+
+                        Get instant notifications
+                        about every event.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="why-card">
+
+                    <i class="fas fa-users"></i>
+
+                    <h4>Student Community</h4>
+
+                    <p>
+
+                        Connect with students and
+                        participate in activities.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ===================================
+            ABOUT SECTION
+=================================== -->
+
+<section class="about-section">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <!-- Left Image -->
+
+            <div class="col-lg-6 text-center">
+
+                <div class="about-image">
+
+                    <img src="{% static 'images/about_event.jpg' %}"
+                         alt="About Smart Event">
+                    <div class="about-badge">
+
+                        <span class="badge-title">Since</span>
+
+                        <h2>2026</h2>
+
+                        <p>Campus Events Platform</p>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Content -->
+
+            <div class="col-lg-6">
+
+                <div class="about-content">
+
+                    <span class="about-tag">
+
+                        ABOUT US
+
+                    </span>
+
+                    <h2>
+
+                        Smart Event
+                        <span>Management System</span>
+
+                    </h2>
+
+                    <p>
+
+                        Smart Event Management System is a modern platform
+                        developed to simplify college event management.
+                        Students can discover events, register instantly,
+                        receive QR tickets, track registrations and stay
+                        updated with all campus activities.
+
+                    </p>
+
+                    <div class="feature-grid">
+
+                        <!-- Feature 1 -->
+
+                        <div class="feature-card">
+
+                            <i class="fas fa-calendar-check"></i>
+
+                            <div>
+
+                                <h5>Easy Registration</h5>
+
+                                <p>
+                                    Register for any college event
+                                    within seconds.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Feature 2 -->
+
+                        <div class="feature-card">
+
+                            <i class="icon-feature fas fa-qrcode"></i>
+
+                            <div>
+
+                                <h5>QR Tickets</h5>
+
+                                <p>
+                                    Secure QR based entry
+                                    for every participant.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Feature 3 -->
+
+                        <div class="feature-card">
+
+                            <i class="icon-feature fas fa-bell"></i>
+
+                            <div>
+
+                                <h5>Live Notifications</h5>
+
+                                <p>
+                                    Receive instant updates
+                                    about every event.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Feature 4 -->
+
+                        <div class="feature-card">
+
+                            <i class="icon-feature fas fa-users"></i>
+
+                            <div>
+
+                                <h5>Student Community</h5>
+
+                                <p>
+                                    Connect with students and
+                                    participate in activities.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <a href="{% url 'events' %}"
+                       class="btn btn-danger btn-lg mt-4">
+
+                        Explore Events
+
+                        <i class="icon-feature fas fa-arrow-right ms-2"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================
+        UPCOMING EVENTS
+=================================== -->
+
+<section class="events-section">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="about-tag">
+                UPCOMING EVENTS
+            </span>
+
+            <h2 class="section-title">
+
+                Explore <span>Latest Events</span>
+
+            </h2>
+
+            <p class="section-subtitle">
+
+                Participate in workshops, seminars, technical events,
+                cultural programs and competitions organized by the university.
+
+            </p>
+
+        </div>
+
+        <div class="row g-4">
 
             {% for event in events %}
 
-            <div class="col-lg-3 col-md-6 mb-4">
+            <div class="col-lg-3 col-md-6">
 
-                <div class="event-card">
+                <div class="event-card h-100">
 
                     {% if event.image %}
-                        <img src="{{ event.image.url }}" alt="{{ event.title }}">
+
+                    <img src="{{ event.image.url }}"
+                         alt="{{ event.title }}">
+
                     {% else %}
-                        <img src="{% static 'images/default_event.jpg' %}" alt="Event">
+
+                    <img src="{% static 'images/default_event.jpg' %}"
+                         alt="Event">
+
                     {% endif %}
 
                     <div class="event-content">
 
                         <h4>{{ event.title }}</h4>
 
+                        {% if event.description %}
+
+                        <p class="event-description">
+
+                            {{ event.description|truncatechars:100 }}
+
+                        </p>
+
+                        {% endif %}
+
                         <p>
+
                             <i class="fas fa-location-dot"></i>
+
                             {{ event.venue }}
+
                         </p>
 
                         <p>
+
                             <i class="fas fa-calendar-days"></i>
+
                             {{ event.date }}
+
                         </p>
 
                         {% if user.is_authenticated %}
 
-                            <a href="{% url 'register_event' event.id %}"
-                               class="btn btn-danger btn-sm mt-2">
-                                Register Now
-                            </a>
+                        <a href="{% url 'register_event' event.id %}"
+                           class="btn btn-danger w-100">
+
+                            Register Now
+
+                        </a>
 
                         {% else %}
 
-                            <a href="{% url 'login' %}"
-                               class="btn btn-danger btn-sm mt-2">
-                                Register Now
-                            </a>
+                        <a href="{% url 'login' %}"
+                           class="btn btn-danger w-100">
+
+                            Login to Register
+
+                        </a>
 
                         {% endif %}
 
@@ -161,7 +529,10 @@
                     <h4>No Upcoming Events</h4>
 
                     <p>
-                        There are no upcoming events available at the moment.
+
+                        There are currently no events available.
+                        Please check back later.
+
                     </p>
 
                 </div>
@@ -172,137 +543,20 @@
 
         </div>
 
-        <div class="text-center mt-4">
+        <div class="text-center mt-5">
 
-            <a href="{% url 'events' %}" class="btn btn-outline-danger btn-lg">
+            <a href="{% url 'events' %}"
+               class="btn btn-outline-danger btn-lg">
+
                 View All Events
+
             </a>
 
         </div>
 
-    </section>
-    <!-- =========================
-         FOOTER
-    ========================= -->
+    </div>
 
-    <footer class="footer">
-
-        <div class="footer-container">
-
-            <!-- About -->
-
-            <div class="footer-col">
-
-                <img src="{% static 'images/logo.png' %}"
-                     class="footer-logo"
-                     alt="Logo">
-
-                <h3>SMART EVENT</h3>
-
-                <p>
-                    Smart Event Management System<br>
-                    Central University of Andhra Pradesh<br>
-                    Ananthapuramu, Andhra Pradesh<br>
-                    India
-                </p>
-
-                <a href="{% url 'contact' %}" class="contact-btn">
-                    <i class="fas fa-envelope"></i>
-                    Contact Us
-                </a>
-
-            </div>
-
-            <!-- Quick Links -->
-
-            <div class="footer-col">
-
-                <h3>Quick Links</h3>
-
-                <ul>
-
-                    <li>
-                        <a href="{% url 'home' %}">
-                            Home
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="{% url 'events' %}">
-                            Events
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="{% url 'my_events' %}">
-                            My Events
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="{% url 'gallery' %}">
-                            Gallery
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="{% url 'notices' %}">
-                            Notices
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="{% url 'contact' %}">
-                            Contact
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <!-- Follow -->
-
-            <div class="footer-col">
-
-                <h3>Follow Us</h3>
-
-                <p>
-                    Stay connected with Smart Event on social media.
-                </p>
-
-                <div class="social-icons">
-
-                    <a href="#">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-
-                    <a href="#">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-
-                    <a href="#">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-
-                    <a href="#">
-                        <i class="fab fa-x-twitter"></i>
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="footer-bottom">
-
-            © 2026 Smart Event Management System |
-            All Rights Reserved.
-
-        </div>
-
-    </footer>
+</section>
 
 </div>
 
